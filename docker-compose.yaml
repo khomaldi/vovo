@@ -1,0 +1,48 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vovo_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=vovo_db
+      - DB_USERNAME=vovo_user
+      - DB_PASSWORD=vovo_password
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - vovo_app_net
+
+  db:
+    image: postgres:17-alpine
+    container_name: vovo_db
+    environment:
+      - POSTGRES_DB=vovo_db
+      - POSTGRES_USER=vovo_user
+      - POSTGRES_PASSWORD=vovo_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U vovo_user -d vovo_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - vovo_app_net
+
+networks:
+  vovo_app_net:
+    driver: bridge
+
+volumes:
+  postgres_:
