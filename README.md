@@ -57,6 +57,8 @@ http://localhost:8000/docs/api
 
 Можно выполнять запросы прямо с сайта документации. Справа окошко с кнопкой «Send API Request»
 
+К примеру, роут документации для получения списка товаров http://127.0.0.1:8000/docs/api#/operations/products.getProducts
+
 ![img.png](img.png)
 
 ## Что использовалось
