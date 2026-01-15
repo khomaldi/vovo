@@ -60,7 +60,7 @@ http://localhost:8000/docs/api
 ## Что использовалось
 1. PHP 8.5
 2. Laravel 12
-3. dedoc/scramble — для документации
-4. spatie/laravel-query-builder — для упрощения работы с QueryBuilder на основе пришедшего Request
-5. spatie/laravel-json-api-paginate — чтобы привести пагинацию к JSON API Specification
-6. barryvdh/laravel-ide-helper — для удобства разработки
+3. [dedoc/scramble](https://scramble.dedoc.co/) — для документации
+4. [spatie/laravel-query-builder](https://spatie.be/docs/laravel-query-builder/v6/introduction) — для упрощения работы с QueryBuilder на основе пришедшего Request
+5. [spatie/laravel-json-api-paginate](https://github.com/spatie/laravel-json-api-paginate) — чтобы привести пагинацию к JSON API Specification
+6. [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) — для удобства разработки
